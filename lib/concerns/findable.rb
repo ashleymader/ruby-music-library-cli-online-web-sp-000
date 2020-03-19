@@ -1,29 +1,9 @@
-module Memorable
-  module ClassMethods
-    def reset_all
-      self.all.clear
-    end
-    
-    def destroy_all
-      self.all.clear
-    end
-    
-    def all
-      self.all
-    end
+module Concerns::Findable
+  def find_by_name(name)
+    self.all.detect {|e| e.name == name}
   end
-  
-  module InstanceMethods
-    def initialize(name)
-      self.class.all << self
-    end
-    
-    def save 
-      @@all << self
-    end
+
+  def find_or_create_by_name(name)
+    self.find_by_name(name) || self.create(name)
   end
 end
-
-
- 
-
