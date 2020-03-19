@@ -2,6 +2,7 @@
 
 class Artist 
   attr_accessor :name, :song, :musiclibrarycontroller, :musicimporter
+  extend 
   @@all = []
   def initialize(name)
     @name = name 
